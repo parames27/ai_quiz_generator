@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A beginner-friendly demo that helps teachers build multiple-choice quizzes on AI topics.">
+  <title>AI Quiz Generator for Teachers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>AI Quiz Generator for Teachers</h1>
+    <p>Build a quick multiple-choice quiz on AI topics for your class.</p>
+    <p class="demo-note"><strong>Demo version:</strong> questions come from a small built-in sample bank. No live AI model is used.</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="setup-title">
+      <h2 id="setup-title">Create a quiz</h2>
+      <form id="setup-form" novalidate>
+        <label for="topic">Topic</label>
+        <input id="topic" type="text" placeholder="e.g. machine learning" autocomplete="off">
+        <div id="topic-chips" class="chips" aria-label="Available demo topics"></div>
+
+        <div class="row">
+          <div>
+            <label for="difficulty">Difficulty</label>
+            <select id="difficulty">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+          <div>
+            <label for="count">Number of questions</label>
+            <select id="count">
+              <option value="3">3 questions</option>
+              <option value="5" selected>5 questions</option>
+              <option value="6">6 questions</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary">Generate Quiz</button>
+        <p id="setup-message" class="message" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section id="quiz-section" class="card" aria-labelledby="quiz-title" hidden>
+      <h2 id="quiz-title">Quiz</h2>
+      <p id="quiz-meta" class="meta"></p>
+
+      <form id="quiz-form" novalidate>
+        <div id="questions"></div>
+        <p id="quiz-message" class="message" role="alert" hidden></p>
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="btn primary">Submit Quiz</button>
+          <button type="button" id="reset-btn" class="btn secondary">Reset Quiz</button>
+        </div>
+      </form>
+
+      <div id="result" class="result" tabindex="-1" hidden></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Demo project &middot; MIT License &middot; Sample questions are for practice only.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
